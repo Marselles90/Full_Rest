@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 class UserSerializers(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'email', 'password', 'phone']
+        fields = ['username', 'email', 'password']
         extra_kwargs = {
             'password': {'write_only': True, 'min_length': 6, 'max_length': 20 }
         }
@@ -18,3 +18,4 @@ class UserSerializers(serializers.ModelSerializer):
             raise serializers.ValidationError("Пароль должен содержать как минимум одну букву и одну цифру")
         return value
     
+

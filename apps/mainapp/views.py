@@ -40,4 +40,4 @@ class AuthorViewSet(ModelViewSet):
     search_fields = ['name', 'birth_date']
     ordering = ['-birth_date']
     pagination_class = PaginationAuthor
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permissionstring_classes = [IsAuthenticatedOrReadOnly]

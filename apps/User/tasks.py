@@ -12,19 +12,3 @@ def send_email_task(email_to):
     email_from = settings.EMAIL_HOST_USER
     send_mail(subject, message, email_from, [email_to])    
    
-   
-
-@shared_task
-def send_phone(phone):
-    text = 'Добро пожаловать на рассылку'
-    url = settings.MOBIZON_URL
-    api_key = settings.MOBIZON_API_KEY
-
-    data = {
-        'recipient': phone,
-        'message': text }
-    
-    url = f'{url}&apiKey={api_key}'
-    response = requests.post(url, data=data)
-    print(response.text)
-     
